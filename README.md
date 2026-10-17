@@ -12,17 +12,33 @@ GitHub 仓库：[FoolishDeveloper5360/agent-skill-workbench](https://github.com/
 
 | 技能 | 用途 | 使用说明 |
 | --- | --- | --- |
-| [reference-modeling-quality](reference-modeling-quality/SKILL.md) | 根据参考图制作可编辑的 Blender 模型，检查视觉、几何、导出与可恢复交付 | [安装、依赖与示例](reference-modeling-quality/README.md) |
+| [reference-modeling-quality](reference-modeling-quality/README.md) | 根据参考图制作可编辑的 Blender 模型，检查视觉、几何、导出与可恢复交付 | [安装、依赖与示例](reference-modeling-quality/README.md) |
 
-## 开始使用
+## 推荐：复制一句话安装
 
-1. 先阅读目标技能的使用说明，确认工具与环境条件。
-2. 获取完整技能文件夹，保留 `SKILL.md`、`agents/`、`references/`、`scripts/` 的相对结构。
-3. 按宿主工具的技能安装方式放置文件夹，再明确调用技能并提供任务素材。
+在 Codex 中发送以下内容，让内置安装器下载并安装完整技能，无需克隆仓库或手动放置文件：
+
+```text
+使用 $skill-installer 安装这个技能：
+https://github.com/FoolishDeveloper5360/agent-skill-workbench/tree/main/reference-modeling-quality
+```
+
+安装完成后，在下一轮对话附上参考图并发送：
+
+```text
+使用 $reference-modeling-quality，按附件参考图制作可编辑的 Blender 模型。
+请先检查现有工具是否可用，将工程和检查点保存在当前项目内，完成质量检查后交付。
+```
+
+若技能没有出现，再重启 Codex。自动安装依据 [OpenAI 官方技能文档](https://learn.chatgpt.com/docs/build-skills)。
 
 本仓库提供技能指令和辅助文件。执行能力由使用它的 Agent 和已配置工具提供；不会随技能自动安装 Blender、连接服务或授予文件访问权限。
 
-目前提供 Codex 的手动安装示例。其他支持 `SKILL.md` 的工具需按各自文档配置，尚未完成跨工具兼容性验证。
+### 备选：手动安装
+
+安装器不可用或需要离线复制时，将完整 `reference-modeling-quality/` 文件夹放到目标项目的 `.agents/skills/` 下，保留内部文件结构。详细步骤见 [技能使用说明](reference-modeling-quality/README.md#备选手动安装)。
+
+其他支持 `SKILL.md` 的工具需按各自文档配置，尚未完成跨工具兼容性验证。
 
 ## 仓库约定
 

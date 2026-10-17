@@ -4,7 +4,25 @@
 
 适用于道具、车辆与硬表面资产；有机对象需要采用相应雕刻和拓扑流程。仅需一张效果图时通常不必使用这个技能。
 
-## 使用条件
+## 推荐：自动安装后直接使用
+
+在 Codex 中发送：
+
+```text
+使用 $skill-installer 安装这个技能：
+https://github.com/FoolishDeveloper5360/agent-skill-workbench/tree/main/reference-modeling-quality
+```
+
+安装器会下载完整技能文件夹，无需手动选择路径。安装完成后，在下一轮对话附上参考图并发送：
+
+```text
+使用 $reference-modeling-quality，按附件参考图制作可编辑的 Blender 模型。
+请先检查现有工具是否可用，将工程和检查点保存在当前项目内，完成质量检查后交付。
+```
+
+无需预先整理图片目录或自己运行清单命令。可直接附图；有尺寸、用途或格式要求时一并说明，其他由 Agent 根据任务处理。若技能没有出现，再重启 Codex。
+
+### 环境由 Agent 先检查
 
 - 一个能读取本地技能文件、查看参考图并执行建模操作的 AI Agent。
 - 可使用的 Blender，以及 Agent 调用它的途径，例如已配置的本地脚本执行或建模工具连接。技能不包含 Blender 控制连接器，也不会自动安装软件。
@@ -12,9 +30,9 @@
 - 运行附带清单脚本需要 Python 3.8 或更新版本，仅使用标准库。它可独立运行，无需 Blender。
 - 输出 GLB 时需要可用的导出与回读能力；具体 Blender 版本和工具连接由使用环境决定，尚未建立兼容版本矩阵。
 
-## 在 Codex 中手动安装
+## 备选：手动安装
 
-将整个 `reference-modeling-quality` 文件夹复制到目标项目的 `.agents/skills/` 下：
+安装器不可用或需要离线复制时，将整个 `reference-modeling-quality` 文件夹复制到目标项目的 `.agents/skills/` 下：
 
 ```text
 你的项目/
@@ -23,6 +41,7 @@
         └── reference-modeling-quality/
             ├── SKILL.md
             ├── README.md
+            ├── LICENSE
             ├── agents/openai.yaml
             ├── references/
             └── scripts/
@@ -34,10 +53,10 @@
 
 ## 调用示例
 
-以下是说明性任务，不是已经完成的建模案例。先将你有权使用的正面、侧面和背面图片放到项目的 `references/`，再发送：
+需要更精确地控制交付时，可参考下面的说明性任务（并非已经完成的建模案例）。直接附上有权使用的参考图；图片已在项目内时也可给出路径：
 
 ```text
-使用 $reference-modeling-quality，按附件和项目 references/ 下的三张参考图
+使用 $reference-modeling-quality，按附件中的三张参考图
 制作一个静态硬表面道具模型，用于网页展示。
 
 约束：总高度 0.4 米，其他尺寸按参考比例推断，无需绑定或动画。
@@ -53,7 +72,9 @@
 
 最终交付应能找到源工程、所需依赖、GLB（本任务要求时）、对照图、QA 记录和清单；粗模阶段尚不存在的产物应注明。QA 分别记录视觉和技术结果，以及未验证项。具体要求见 [技能入口](SKILL.md) 和 [保存说明](references/checkpoint-delivery.md)。
 
-## 清单脚本
+## 清单脚本（由 Agent 运行）
+
+正常使用时，Agent 会完成清单生成与验证，用户无需手动执行。下面命令供排查或独立检查时参考。
 
 在技能目录运行，路径含空格时加引号：
 
@@ -74,4 +95,8 @@ python scripts/checkpoint_manifest.py verify "你的检查点目录"
 
 ## 当前验证情况
 
-作者已在实际工作中使用此技能。本仓库的可复核检查范围见 [检查记录](../docs/VALIDATION.md)；目前未附真实建模案例或效果对比，也未完成跨 Agent、跨系统的完整建模验收。
+作者已在实际工作中使用此技能。本仓库的可复核检查范围见 [检查记录](https://github.com/FoolishDeveloper5360/agent-skill-workbench/blob/main/docs/VALIDATION.md)；目前未附真实建模案例或效果对比，也未完成跨 Agent、跨系统的完整建模验收。
+
+## 许可
+
+作者：[FoolishDeveloper5360](https://github.com/FoolishDeveloper5360)。本技能及辅助文件采用 [MIT 许可证](LICENSE)。单独安装技能时也会携带许可文本。
