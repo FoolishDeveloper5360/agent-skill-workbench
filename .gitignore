@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.local
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Keep task outputs outside published skill sources.
+# Deliberate future examples may use a separate reviewed directory.
+/work/
+/outputs/
+/checkpoints/
+/tmp/
+*.blend1
+*.blend2
+*.tmp
+*.log

@@ -1,0 +1,6 @@
+interface:
+  display_name: 参考驱动三维建模
+  short_description: 从参考图到可编辑模型，检查形体、结构、导出和可恢复交付
+  default_prompt: 使用 $reference-modeling-quality 按参考制作可编辑模型，并完成视觉对照、GLB 回读和可恢复保存。
+policy:
+  allow_implicit_invocation: true
