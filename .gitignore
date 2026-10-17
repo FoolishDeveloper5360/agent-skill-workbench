@@ -30,3 +30,6 @@ desktop.ini
 *.blend2
 *.tmp
 *.log
+
+# Private maintainer notes
+/.local-notes/
